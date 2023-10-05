@@ -4,6 +4,7 @@ import { Product } from "../../../../helpers/Product";
 
 import { Carousel } from "../../../Carusel/Carusel";
 import { HotPrices } from "../../../../HotPrices";
+import { Category } from "../../../Category/Category";
 
 import './HomePage.scss'
 
@@ -29,6 +30,8 @@ export const HomePage = () => {
     <Carousel />
 
     <HotPrices products={products}/>
+
+    <Category product={products} />
     </div>
   );
 }

@@ -61,20 +61,13 @@ export const HotPrices: React.FC<Props> = ({
     setLastVisibleCard(newCard);
   };
 
-  const filterProduct = products.filter(phone => phone.discount > 0);
-
-  const productDiscounts = filterProduct.map(item => ({
-    ...item,
-    productDiscount: item.price * ((100 - item.discount) / 100)
-  }));
-
 
   return (
     <div className="hotPrices">
       <div className="hotPrices__container--header">
-      <div className="hotPrices__header">
-        Hot prices
-      </div>
+        <div className="hotPrices__header">
+          Hot prices
+        </div>
 
       <div className="ProductsSlider__buttons">
           <button
@@ -102,14 +95,14 @@ export const HotPrices: React.FC<Props> = ({
       </div>
 
       <div className="hotPrices__container">
-        {productDiscounts.map((phone) =>{
+        {products.map((phone) =>{
           <div
             className="hotPrices__phone"
             key={phone.id}
             style={styles}
           >
             <img
-              src={phone.imageUrl}
+              src={phone.image}
               alt={phone.name}
               className='hotPrices__img'
             />
@@ -120,11 +113,11 @@ export const HotPrices: React.FC<Props> = ({
 
             <div className="hotPrices__cost">
               <div className="hotPrices__cost--discount">
-                {phone.productDiscount}
+                {phone.price}
               </div>
 
               <div className="hotPrices__cost--real">
-                {phone.price}
+                {phone.fullPrice}
               </div>
             </div>
 
