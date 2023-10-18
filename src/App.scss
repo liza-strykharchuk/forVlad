@@ -29,8 +29,16 @@ html {
 
 body {
   margin: 0;
-  height: 100vh;
   font-family: "Mont", sans-serif;
   font-weight: normal;
   box-sizing: border-box;
+}
+
+.main {
+  min-height: 65vh;
+}
+
+
+a {
+  text-decoration: none;
 }

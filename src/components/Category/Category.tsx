@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 import { Product } from "../../helpers/Product";
 
 import './Category.scss';
@@ -15,47 +17,47 @@ export const Category: React.FC<Props> = ({product}) => {
 
   return (
     <div className="category">
-      
+
       <div className="category__header">
         Shop by category
       </div>
 
       <div className="category__container">
-        <div className="category__phone">
-          <div className="category__phone--img category__img"></div>
+      <Link to={'/phones'} className="category__phone">
+          <img className="category__phone--img category__img"/>
             <div className="category__title">
               Mobile phones
             </div>
-              <div className="category__phone--name">
+              <div className="category__name">
               {getLengthByCategory(product, 'phones') }
                 {' '}
               models
             </div>
-        </div>
+        </Link>
 
-        <div className="category__tablets">
-         <div className="category__tablets--img category__img"></div>
+        <Link to={'/tablets'} className="category__tablets">
+         <img className="category__tablets--img category__img"/>
             <div className="category__title">
               Tablets
             </div>
-           <div className="category__tablets--name">
+           <div className="category__name">
             {getLengthByCategory(product, 'tablets') }
               {' '}
               models
             </div>
-        </div>
+        </Link>
 
-        <div className="category__accessories">
-          <div className="category__accessories--img category__img"></div>
+        <Link to={'/accessories'} className="category__accessories">
+          <img className="category__accessories--img category__img"/>
             <div className="category__title">
             Accessories
             </div>
-           <div className="category__accessories--name">
+           <div className="category__name">
             {getLengthByCategory(product, 'accessories') }
               {' '}
               models
             </div>
-        </div>
+        </Link>
       </div>
     </div>
 

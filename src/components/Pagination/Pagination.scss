@@ -1,0 +1,53 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__button {
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  &__right {
+    background-image: url("../../icons/chevron-arrow-right.svg");
+  }
+
+  &__left {
+    background-image: url("../../icons/chevron-arrow-left.svg");
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #E2E6E9;
+    background-color: #FFF;
+    cursor: pointer;
+
+    &--text {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 21px;
+      color: #000000;
+      text-decoration: none;
+    }
+
+    &--active {
+      background-color: #313237;
+      color: #FFF;
+    }
+
+    &:hover {
+      border-color: #313237;
+    }
+
+    &--link {
+      text-decoration: none;
+    }
+  }
+}

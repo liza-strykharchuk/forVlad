@@ -1,0 +1,120 @@
+.phone {
+  list-style: none;
+  margin-right: 16px;
+  padding: 24px;
+  border: 1px solid #E2E6E9;
+  margin-bottom: 40px;
+
+  &__img {
+    width: 208px;
+    height: 208px;
+    object-fit: contain;
+    margin-bottom: 24px;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #313237;
+    width: 224px;
+    margin-bottom: 6px;
+    min-height: 42px;
+    text-decoration: none;
+
+    cursor: pointer;
+  }
+
+  &__cost {
+    display: flex;
+    border-bottom: 1px solid #E2E6E9;
+    padding-bottom: 6px;
+    min-height: 31px;
+
+    &--discount {
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 30.8px;
+      color: #313237;
+      padding-right: 8px;
+    }
+
+    &--real {
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 28.12px;
+      color:#89939A;
+      text-decoration: line-through;
+    }
+  }
+
+  &__criteria {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15.34px;
+    margin-top: 16px;
+
+
+    &--container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      margin-bottom: 8px;
+
+      &:last-child {
+        margin-bottom: 16px;
+      }
+    }
+
+    &--big {
+      color: #89939A;
+    }
+
+    &--small {
+      color: #313237;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+
+    &--add {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 21px;
+      color:#FFFFFF;
+      background-color: #313237;
+      width: 176px;
+      height: 40px;
+      margin-right: 8px;
+      cursor: pointer;
+    }
+
+    &--like {
+      width: 40px;
+      height: 40px;
+      background-image: url("../../icons/favSmall.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #FFFFFF;
+      border: 1px solid #B4BDC3;
+      cursor: pointer;
+      transition: all .3s ease-out;
+
+      &:hover {
+        border: 1px solid #313237;
+      }
+    }
+  }
+}
+

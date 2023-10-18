@@ -1,37 +1,42 @@
-import {useState, useEffect} from "react";
+import {useState} from "react";
+
+import jsonProduct from "../../../../products.json";
 
 import { Product } from "../../../../helpers/Product";
 
 import { Carousel } from "../../../Carusel/Carusel";
-import { HotPrices } from "../../../../HotPrices";
 import { Category } from "../../../Category/Category";
+import { ProductSlider } from "../../../ProductSlider";
 
-import './HomePage.scss'
+import './HomePage.scss';
 
 
 export const HomePage = () => {
   const [products] = useState<Product[]>(() => {
     const storedProduct = localStorage.getItem('product');
 
-    return storedProduct ? JSON.parse(storedProduct) : [];
+    return storedProduct ? JSON.parse(storedProduct) : jsonProduct;
   });
 
-
-
-  useEffect(() => {
-    if (products.length !== 0) {
-      localStorage.setItem('products', JSON.stringify(products));
-    }
-  }, [products]);
 
 
   return (
     <div className="home">
     <Carousel />
 
-    <HotPrices products={products}/>
+    <ProductSlider
+      products={products}
+      filterBy= ''
+      title='Hot prices'
+    />
 
     <Category product={products} />
+
+    <ProductSlider
+      products={products}
+      filterBy= 'year'
+      title='Brand new models'
+    />
     </div>
   );
 }

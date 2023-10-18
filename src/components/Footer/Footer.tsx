@@ -1,8 +1,25 @@
+import { useState } from 'react';
 import './Footer.scss'
 
 export const Footer = () => {
+  const [hasVerticalScroll, setHasVerticalScroll] = useState(false);
+
   const logo: string = require("../../icons/logo.svg").default;
   const arrowUp: string = require("../../icons/chevron-arrow-up-hover.svg").default;
+
+  function checkIfPageHasScroll() {
+    setHasVerticalScroll(document.body.scrollHeight > window.innerHeight);
+  }
+
+
+  window.addEventListener('scroll', checkIfPageHasScroll);
+
+  const handleClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
   return (
     <footer className="footer">
@@ -14,30 +31,30 @@ export const Footer = () => {
         <img src={logo} alt='logo'/>
       </a>
 
-      <nav className="nav">
-        <ul className="nav__list">
-          <li className="nav__item">
+      <nav className="footer__nav">
+        <ul className="footer__nav__list">
+          <li className="footer__nav__item">
             <a
               href="/"
-              className="nav__link"
+              className="footer__nav__link"
             >
               GITHUB
             </a>
           </li>
 
-          <li className="nav__item">
+          <li className="footer__nav__item">
             <a
               href="#phones"
-              className="nav__link"
+              className="footer__nav__link"
             >
               CONTACTS
             </a>
           </li>
 
-          <li className="nav__item">
+          <li className="footer__nav__item">
             <a
               href="#tablets"
-              className="nav__link"
+              className="footer__nav__link"
             >
               RIGHTS
             </a>
@@ -45,15 +62,20 @@ export const Footer = () => {
         </ul>
       </nav>
 
-      <a href="#" className="footer__up">
-        <div className="footer__up--container">
+      {hasVerticalScroll &&(
+      <button
+        onClick={handleClick}
+        id="myBtn"
+        className="footer__up"
+      >
+         <div className="footer__up--container">
         <div className="footer__up--text"> Back to top</div>
           <img
             src={arrowUp}
             alt="top"
             className="footer__icon"/>
         </div>
-      </a>
+      </button>)}
     </div>
   </footer>
   );
